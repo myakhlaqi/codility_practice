@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 def solution(A):
     n=-1
     if len(A)==0:
@@ -8,7 +7,6 @@ def solution(A):
         return A[0]
     else:
         while len(A)>0:
-            #indexes= [i for i,x in enumerate(A) if x==A[0]] 
             try:
                 index2=A.index(A[0],1)
                 print("index2:",index2)
