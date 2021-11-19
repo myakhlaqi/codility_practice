@@ -45,15 +45,11 @@ def solution(N):
             if(i==len(binary)):
                 zero=0
                 break
-            
-        #print("zero count", zero)
         if(zero>max):
             max=zero
         zero=0
         i=i+1
         j=i
     return max
-            
     
-print(to_binary(20))
 print("max is ", solution(20))
