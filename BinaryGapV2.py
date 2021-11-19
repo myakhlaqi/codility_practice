@@ -8,7 +8,6 @@ def solution(N):
     rx_pattern=r"010"
     binary_n=re.sub(rx_pattern,"0110",binary_n)
     result=re.findall(r"10+1",binary_n)
-    
     #print(max([len(x)-2 for x in result]))
     return max([x.count("0") for x in result],default=0)
     
