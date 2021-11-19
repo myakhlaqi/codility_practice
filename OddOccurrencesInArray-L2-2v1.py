@@ -18,6 +18,7 @@ def solution(A):
             except ValueError:
                 n=A[0]
                 A.pop(0)
+                break
 
     return n
 
