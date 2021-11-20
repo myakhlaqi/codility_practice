@@ -10,6 +10,4 @@ def solution(N):
     result=re.findall(r"10+1",binary_n)
     #print(max([len(x)-2 for x in result]))
     return max([x.count("0") for x in result],default=0)
-
-print(solution(0))
     
