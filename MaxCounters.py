@@ -2,17 +2,21 @@
 # print("this is a debug message")
 
 def solution(N, A):
-    counters_dic=[0]*N
-    print("counters_dic", counters_dic)
-    
-    max=0
-    for i,v in enumerate(A):
-        if(v>=1 and v <=N):
-            counters_dic[v-1]+=1
-            if(counters_dic[v-1]>max):
-                max=counters_dic[v-1]
-        elif v==N+1:
-            counters_dic=[max]*N
-    return counters_dic
+    counters=[0]*N
+    print("counters_dic", counters)
+    max_value=0
+    update=0
+    for item in A:
+        if(item>=1 and item <=N):
+            counters[item-1]=max([update,counters[item-1]])
+            counters[item-1]+=1
+            if(counters[item-1]>max_value):
+                max_value=counters[item-1]
+        elif item==N+1:
+            update=max_value
+    for i in range(N):
+        counters[i] = max(counters[i],update)
+            
+    return counters
 
 print(solution(5,[3,4,4,6,1,4,4]))
