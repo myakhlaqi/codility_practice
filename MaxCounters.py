@@ -3,7 +3,7 @@
 
 def solution(N, A):
     counters=[0]*N
-    print("counters_dic", counters)
+    #print("counters_dic", counters)
     max_value=0
     update=0
     for item in A:
@@ -19,4 +19,4 @@ def solution(N, A):
             
     return counters
 
-print(solution(5,[3,4,4,6,1,4,4]))
+#print(solution(5,[3,4,4,6,1,4,4]))
