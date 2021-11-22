@@ -1,13 +1,14 @@
 # you can write to stdout for debugging purposes, e.g.
 # print("this is a debug message")
-import math
 
 def solution(A, B, K):
-    result=0
-    result=((B-A)//K)+1
-    if(A%K!=0):
-        result-=1
-    return result
+    b = (B//K) + 1  
+    a = (A//K) + 1  
+    if (A%K == 0) :#// "A" is inclusive; if divisible by K then
+        a-=1        #//   remove 1 from "a"
+        
+    return b-a     #// return integers in rang
+
 
 
 print(solution(6,12,2))
