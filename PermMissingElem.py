@@ -6,6 +6,4 @@ def solution(A):
     result=set_b - set_a
     # print("result", result)
     return list(result)[0]
-    
-    
 # print(solution([2,3,1,5]))
