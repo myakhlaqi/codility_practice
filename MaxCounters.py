@@ -18,5 +18,3 @@ def solution(N, A):
         counters[i] = max(counters[i],update)
             
     return counters
-
-#print(solution(5,[3,4,4,6,1,4,4]))
