@@ -30,7 +30,7 @@ def solution(A):
     print("right_leaders", right_leaders)
     counter=0
     for i in range(n-2):
-        if(right_leaders[i]==left_leaders[i]):
+        if(right_leaders[i]==left_leaders[i] and right_leaders[i]!=None and left_leaders[i]!=None):
             counter+=1
     return counter
 
