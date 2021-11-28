@@ -71,7 +71,7 @@ def solution1(A):
             counter+=1
             print("find")
     return counter
-A=[4,3,4,4,4,2]
+A=[4,4]
 
 #A=[-1, 4, -1, 3, -1]
 print(solution(A))
