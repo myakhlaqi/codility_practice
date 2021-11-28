@@ -4,7 +4,7 @@ def leader_all(A):
     stack=deque()
     counter=0
     leaders=[]
-    for i,value in enumerate(A[:-1]):
+    for i,value in enumerate(A):
         if(len(stack)==0):
             stack.append(value)
             counter+=1
@@ -23,15 +23,16 @@ def leader_all(A):
 def solution(A):
     n=len(A)
     left_leaders=leader_all(A[:-1])
+    print("left_leaders", left_leaders)
     B=A[::-1]
     right_leaders=leader_all(B[:-1])
+    right_leaders=right_leaders[::-1]
+    print("right_leaders", right_leaders)
     counter=0
-    for i in range(n-1):
+    for i in range(n-2):
         if(right_leaders[i]==left_leaders[i]):
             counter+=1
     return counter
-        
-                
 
 def leader(A):
     stack=deque()
