@@ -7,6 +7,16 @@ def golden_max_slice(A):
         max_ending = max(0, max_ending + a)
         max_slice = max(max_slice, max_ending)
     return max_slice
+def solution(A):
+    if(len(A)==0):
+        return 0
+    else:
+        min_start= A[0]
+        max_profit = 0
+        for a in A:
+            min_start = min(a, min_start)
+            max_profit = max(max_profit, a - min_start)
+        return max_profit
 
 def solution1(A):
     n=len(A)
