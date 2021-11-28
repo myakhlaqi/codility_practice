@@ -1,6 +1,7 @@
 #Find the index S such that the leaders of the sequences A[0], A[1], ..., A[S] and A[S + 1], A[S + 2], ..., A[N - 1] are the same.
-from collections import Counter
 from collections import deque
+
+
 def leader(A):
     stack=deque()
     n=len(A)
@@ -39,7 +40,7 @@ def solution(A):
             counter+=1
             print("find")
     return counter
-#A=[4,3,4,4,4,2]
-A=[-1, 4, -1, 3, -1]
+A=[4,3,4,4,4,2]
+#A=[-1, 4, -1, 3, -1]
 print(solution(A))
 
