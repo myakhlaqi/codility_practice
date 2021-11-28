@@ -1,5 +1,22 @@
 #Find the index S such that the leaders of the sequences A[0], A[1], ..., A[S] and A[S + 1], A[S + 2], ..., A[N - 1] are the same.
 from collections import deque
+import random
+
+def solution(A):
+    leader_ix=leader(A)
+    equi_leaders = 0
+    leader_count_so_far = 0
+    n=len(A)
+    for index in range(n):
+        if A[index] == A[leader_ix]:
+            leader_count_so_far += 1
+        if leader_count_so_far > (index+1)//2 and
+           leader_count-leader_count_so_far > (n-index-1)//2:
+            # Both the head and tail have leaders of the same value
+            # as "leader"
+            equi_leaders += 1
+    return equi_leaders
+
 def leader_all(A):
     stack=deque()
     counter=0
@@ -8,6 +25,7 @@ def leader_all(A):
         if(len(stack)==0):
             stack.append(value)
             counter+=1
+            
         else:
             if(value!=stack[-1]):
                 stack.pop()
@@ -20,7 +38,8 @@ def leader_all(A):
             leaders.append(None)
     return leaders
 
-def solution(A):
+def solution2(A):
+    """O(N) but error in one case A=[4,1,2,3,4,4,4] expected 0 get 2"""
     n=len(A)
     left_leaders=leader_all(A[:-1])
     print("left_leaders", left_leaders)
@@ -29,7 +48,7 @@ def solution(A):
     right_leaders=right_leaders[::-1]
     print("right_leaders", right_leaders)
     counter=0
-    for i in range(n-2):
+    for i in range(len(left_leaders)):
         if(right_leaders[i]==left_leaders[i] and right_leaders[i]!=None and left_leaders[i]!=None):
             counter+=1
     return counter
@@ -37,7 +56,7 @@ def solution(A):
 def leader(A):
     stack=deque()
     n=len(A)
-    leader=-1
+    leader=None
     counter=0
     leader_index=-1
     for i in range(n):
@@ -48,31 +67,35 @@ def leader(A):
                 stack.pop()
             else:
                 stack.append(A[i])
-    
-    if(len(stack)>=1):
+    if(len(stack)>0):
         leader=stack[0]
     for i in range(n):
         if(A[i]==leader):
             counter+=1
             leader_index=i
     if(counter>n//2):
-        return leader,leader_index
+        return leader_index
     else:
-        return (-1,-1)
+        return None
 
 def solution1(A):
     n=len(A)
     counter=0
     for i in range(n):
-        L1,i1=leader(A[0:i+1])
-        L2,i2=leader(A[i+1:n])
-        print("{},{}=> ({},{}) and ({},{})".format(A[0:i+1],A[i+1:n],L1,i1,L2,i2))
-        if(i1!=-1 and i2!=-1 and L1==L2):
+        left_leader_index=leader(A[0:i+1])
+        right_leader_index=leader(A[i+1:n])
+        
+        if(left_leader_index!=None and right_leader_index!=None and A[left_leader_index]==A[right_leader_index]):
+            print("{},{}=> ({},{}) and ({},{})".format(A[0:i+1],A[i+1:n],A[left_leader_index],left_leader_index,A[right_leader_index],right_leader_index))
             counter+=1
-            print("find")
     return counter
-A=[4,4]
+#A=[0]*10
 
 #A=[-1, 4, -1, 3, -1]
-print(solution(A))
-
+#A=random.sample(range(-10000000000,1000000000),300)
+#A=[-999999999]*300
+A=[4,1,2,3,4,4,4]
+#A=[4,3,4,4,4,2]
+print("leader :",leader(A))
+print(solution2(A))
+print(solution1(A))
