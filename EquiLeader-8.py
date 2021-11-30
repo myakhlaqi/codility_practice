@@ -115,7 +115,6 @@ def solution1(A):
 #A=[4,1,2,3,4,4,4]
 A=[4,3,4,4,4,2]
 print("leader :",leader(A))
-
 print(solution1(A))
 print(solution2(A))
 print(solution3(A))
