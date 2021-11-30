@@ -10,5 +10,4 @@ def solution(A):
             max_slice = max(max_slice, max_ending)
         return max_slice
 
-
 print(solution([3,2,-6,4,0]))
