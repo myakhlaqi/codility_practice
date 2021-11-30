@@ -10,5 +10,5 @@ def solution(A):
             max_slice = max(max_slice, max_ending)
         return max_slice
 
-#print(solution([-10,-20]))
+print(solution([5,-7,3,5,-2,4,-1]))
 print(solution([3,2,-6,4,0]))
