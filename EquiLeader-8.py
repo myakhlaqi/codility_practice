@@ -3,6 +3,7 @@ from collections import deque
 
 def solution3(A):
     """ O(N) and 100 precentage of correctness"""
+   
     stack=deque()
     n=len(A)
     leader=None
