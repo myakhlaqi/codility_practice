@@ -14,7 +14,7 @@ def solution(A):
         return sum(A[0]+A[2])
     else:
         max_ending = max_slice = -sys.maxsize
-        for i in range(len(A)):
+        for i in range(1,n-1):
             max_ending =max(A[i],max_ending + A[i])
             max_sum_endingat.append(max_ending)
             max_slice = max(max_slice, max_ending)
@@ -22,16 +22,17 @@ def solution(A):
             x="".join([",{0:>3d}".format(x) for x in max_sum_endingat])
             print("[{1:<{0}s}], sum: {2:^3d}, max_slice: {3:^3d}".format(len(A)*4,x,max_ending,max_slice))
         max_ending = max_slice = -sys.maxsize
-        for i in range(n-1,-1,-1):
+        for i in range(n-2,0,-1):
             max_ending =max(A[i],max_ending + A[i])
             max_sum_startat.append(max_ending)
             max_slice = max(max_slice, max_ending)
             x="".join([",{0:>3d}".format(x) for x in max_sum_startat])
             print("[{1:<{0}s}], sum: {2:^3d}, max_slice: {3:^3d}".format(len(A)*4,x,max_ending,max_slice))
-        
+        max_sum_startat=max_sum_startat[::-1]
+        print("max_sum_startat", max_sum_startat)
         max_double=-sys.maxsize
-        for k in range(1,n-1):
-            max_double=max(max_double,max_sum_endingat[k-1]+max_sum_startat[(n-1)-(k+1)])
+        for k in range(1,n-3):
+            max_double=max(max_double,max_sum_endingat[k-1]+max_sum_startat[k+1])
 
         
         return max_double
