@@ -29,5 +29,4 @@ def solution(X, Y, D):
     steps=math.ceil((Y-X)/D*1.0)
     return steps
 
-
 print(solution(10,85,30))

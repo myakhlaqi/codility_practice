@@ -6,6 +6,7 @@ def solution(N, A):
     #print("counters_dic", counters)
     max_value=0
     update=0
+
     for item in A:
         if(item>=1 and item <=N):
             counters[item-1]=max([update,counters[item-1]])

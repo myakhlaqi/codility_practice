@@ -3,6 +3,7 @@ from collections import deque
 
 def solution3(A):
     """ O(N) and 100 precentage of correctness"""
+   
     stack=deque()
     n=len(A)
     leader=None
@@ -110,12 +111,12 @@ def solution1(A):
 #A=[0]*10
 
 #A=[-1, 4, -1, 3, -1]
+
 #A=random.sample(range(-10000000000,1000000000),300)
 #A=[-999999999]*300
 #A=[4,1,2,3,4,4,4]
 A=[4,3,4,4,4,2]
 print("leader :",leader(A))
-
 print(solution1(A))
-print(solution2(A))
-print(solution3(A))
+#print(solution2(A))
+#print(solution3(A))
