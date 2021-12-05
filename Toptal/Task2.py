@@ -1,5 +1,14 @@
-
+#
 def solution(P,Q):
+    """Find the minimum number of the car for given P and Q and
+
+    Args:
+        P (list): list of number of people inside corresponding car in Q
+        Q (list): maximum capacity of a car
+
+    Returns:
+        int: minimum number of the car reqired for all
+    """
     n=len(P)
     Q_empty=[(Q[i]-P[i]) for i in range(n)]
     print("Q_empty", Q_empty)
