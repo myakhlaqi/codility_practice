@@ -3,6 +3,15 @@ import re
 
 
 def solution(message, K):
+    """Given a message and integer number K crop the message considering K limit and spliting words
+
+    Args:
+        message ([string]): [a message]
+        K ([int]): [maximum length for the output message]
+
+    Returns:
+        [string]: [cropped message]
+    """
     matches = [(m.group(0), (m.start(), m.end()-1)) for m in re.finditer(r'\S+', message)]
     print("matches", matches)
     last_index=0
