@@ -28,7 +28,7 @@ def solution1(S, P, Q):
         dna_matrix[0][i+1]=dna_matrix[0][i]+( ch =='A')
         dna_matrix[1][i+1]=dna_matrix[1][i]+( ch =='C')
         dna_matrix[2][i+1]=dna_matrix[2][i]+( ch =='G')
-    #print("dna_matrix", dna_matrix)
+    print("dna_matrix", dna_matrix)
     
     result=[]
     for i in range(m):
