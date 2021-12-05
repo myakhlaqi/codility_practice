@@ -50,6 +50,7 @@ def solution3(A):
     min_val=max(A)
     min_index=0
     for i in range(n-1):
+        #check only for length of 3 that is enough 
         for j in range(i+1,min(n,i+3)):
             m=(j-i+1)
             avg=count_total(P,i,j)/m
