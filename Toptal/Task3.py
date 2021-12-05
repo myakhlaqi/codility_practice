@@ -11,6 +11,15 @@ def prefix_sums(A):
 def count_total(P, x, y):
     return P[y + 1] - P[x]
 def solution(A):
+    """Return the minimum number of filters for factories such that the total pollution get lower or equal to the 
+    half of the first pollution. each filter reduce the pollution by half.
+
+    Args:
+        A (list): list of the pollution for each factory
+
+    Returns:
+        int: minimum number of the filters 
+    """
     half_pollution=sum(A)/2
     A.sort(reverse=True)
     n=len(A)
