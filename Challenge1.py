@@ -14,7 +14,7 @@ def solution(S):
     result=re.finditer(r'(a+|\?+|b+)',S)
     B=[]
     for m in result:
-        # print("{} = {}, {}".format(m.group()[0],m.span(),(m.end()-m.start())))
+        print("{} = {}, {}".format(m.group()[0],m.span(),(m.end()-m.start())))
         B.append([m.group()[0],m.end()-m.start()])
     # print("B", B)
     C=copy.deepcopy(B)
@@ -68,6 +68,7 @@ def solution(S):
 def solution2(S):
 
     result=re.finditer(r'(a+|\?+|b+)',S)
+    print("result", result)
     B=[]
     for m in result:
         B.append([m.group()[0],m.end()-m.start()])
@@ -106,7 +107,7 @@ s1 = "????aaa?bb??aa???bbb??aa?aa??b?bb??"
 s2 = "aa??bbb"
 s3 = "aa?????bbb"
 s4 = "aa?b?aa"
-s5= "bb??bb"
+s5= "bb??bb?????aa"
 
 print(solution(s5))
 # print(solution(s2))
