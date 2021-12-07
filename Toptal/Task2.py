@@ -11,9 +11,7 @@ def solution(P,Q):
     """
     n=len(P)
     Q_empty=[(Q[i]-P[i]) for i in range(n)]
-    print("Q_empty", Q_empty)
     Q_empty.sort(reverse=True)
-    print("Q_empty", Q_empty)
     car_count=0
     i=sum(P)
     j=0
