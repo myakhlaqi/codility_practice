@@ -1,6 +1,5 @@
 # Find an index of an array such that its value occurs at more than half of indices in the array.
-# you can write to stdout for debugging purposes, e.g.
-# print("this is a debug message")
+
 from collections import Counter
 import sys
 def solution(A):
