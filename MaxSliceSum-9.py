@@ -4,6 +4,8 @@
 
 import sys
 def solution(A):
+    """Dynamic Programming solution of the problem
+    """
     max_ending = max_slice = -sys.maxsize
     if(len(A)==1):
         return A[0]
