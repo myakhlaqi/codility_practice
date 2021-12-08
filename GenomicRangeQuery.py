@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# print("this is a debug message")
-
 
 def solution(S, P, Q):
     dic_if={'A':1,'C':2,'G':3,'T':4}
