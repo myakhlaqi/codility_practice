@@ -10,4 +10,4 @@ def solution(a, k):
             a[0]=temp
     return a
     
-#print(solution([],8))
+#print(solution([1,2,3,0,5],8))
