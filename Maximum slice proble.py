@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 def golden_max_slice(A):
     max_ending = max_slice = 0
     for a in A:
