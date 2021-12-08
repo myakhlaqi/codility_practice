@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 def solution(a, k):
     n=len(a)
     if(n>0):
