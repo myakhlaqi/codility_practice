@@ -18,6 +18,8 @@ def solution(S, P, Q):
 
 
 def solution1(S, P, Q):
+    """O(N) time complexity
+    """
     n=len(S)
     m=len(P)
     dna_matrix=[[0 for col in range(n+1)] for row in range(3)]
