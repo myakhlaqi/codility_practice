@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 def solution(S, P, Q):
+    """O(N^2) time complexity
+    """
     dic_if={'A':1,'C':2,'G':3,'T':4}
     result=[]
     for i in range(len(Q)):
