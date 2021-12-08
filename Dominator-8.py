@@ -16,5 +16,4 @@ def solution(A):
         return B[0]
     return -1
 
-
 print(solution([3, 4, 3, 2, 3, -1, 3, 3]))
