@@ -8,9 +8,6 @@ def solution(A):
                 P,Q,R=A[i],A[j],A[k]
                 if(P+Q>R and P+R>Q and Q+R>P):
                     return 1
-    
-                
-    
     return 0
 
 def solution2(A):
