@@ -1,8 +1,5 @@
 # Determine whether a triangle can be built from a given set of edges.
 
-# you can write to stdout for debugging purposes, e.g.
-# print("this is a debug message")
-
 def solution(A):
     n=len(A)
     for i in range(n-2):
