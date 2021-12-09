@@ -7,7 +7,6 @@
 
 import math
 
-
 def coins(n):
     """ O(N*log(N))"""
     result = 0
