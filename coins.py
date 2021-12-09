@@ -29,7 +29,6 @@ def coins2(n):
     for i in range(1, n+1):
         if(int(math.sqrt(i))*int(math.sqrt(i)) == i):
             result += 1
-
     return result
 
 
