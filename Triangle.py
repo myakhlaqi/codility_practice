@@ -17,8 +17,6 @@ def solution2(A):
         P,Q,R=A[i],A[i+1],A[i+2]
         if(P+Q>R and P+R>Q and Q+R>P):
             return 1
-        
-    
     return 0
 
 
