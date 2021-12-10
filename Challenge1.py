@@ -8,7 +8,6 @@ def opposite(ch):
     else:
         return "a"
 
-
 def solution(S):
 
     result=re.finditer(r'(a+|\?+|b+)',S)
