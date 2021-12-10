@@ -11,3 +11,4 @@ def solution(N):
     #print(max([len(x)-2 for x in result]))
     return max([x.count("0") for x in result],default=0)
     
+print(solution(10))
