@@ -1,4 +1,3 @@
-# you can write to stdout for debugging purposes, e.g.
 
 
 def solution(A, B, K):
