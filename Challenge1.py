@@ -64,7 +64,6 @@ def solution(S):
 
 
 def solution2(S):
-
     result=re.finditer(r'(a+|\?+|b+)',S)
     print("result", result)
     B=[]
