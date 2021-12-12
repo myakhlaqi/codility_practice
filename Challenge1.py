@@ -9,7 +9,6 @@ def opposite(ch):
         return "a"
 
 def solution(S):
-
     result=re.finditer(r'(a+|\?+|b+)',S)
     B=[]
     for m in result:
