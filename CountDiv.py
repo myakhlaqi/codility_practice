@@ -9,7 +9,6 @@ def solution(A, B, K):
     return b-a     #// return integers in rang
 
 
-
 print(solution(6,12,2))
 print(solution(6,13,2))
 print(solution(7,13,2))
