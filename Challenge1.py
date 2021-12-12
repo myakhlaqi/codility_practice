@@ -106,7 +106,6 @@ s3 = "aa?????bbb"
 s4 = "aa?b?aa"
 s5= "bb??bb?????aa"
 
-
 print(solution(s5))
 # print(solution(s2))
 # print(solution(s3))
