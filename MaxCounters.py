@@ -1,4 +1,3 @@
-
 # print("this is a debug message")
 
 def solution(N, A):
