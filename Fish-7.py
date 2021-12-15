@@ -4,7 +4,6 @@ from collections import deque
 def solution(A, B):
     q=deque()
 
-#    for i in range(len(A)):
     i=0
     while (i<len(A)):
         if(len(q)==0):
