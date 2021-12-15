@@ -3,7 +3,6 @@
 from collections import deque
 def solution(A, B):
     q=deque()
-
     i=0
     while (i<len(A)):
         if(len(q)==0):
