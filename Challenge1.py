@@ -8,9 +8,7 @@ def opposite(ch):
     else:
         return "a"
 
-
 def solution(S):
-
     result=re.finditer(r'(a+|\?+|b+)',S)
     B=[]
     for m in result:
@@ -66,7 +64,6 @@ def solution(S):
 
 
 def solution2(S):
-
     result=re.finditer(r'(a+|\?+|b+)',S)
     print("result", result)
     B=[]
@@ -100,7 +97,6 @@ def solution2(S):
                             B[i][1]=2
 
     return max([x[1] for x in B if x[0]!="?"],default=1)
-
 
 
 s1 = "????aaa?bb??aa???bbb??aa?aa??b?bb??"

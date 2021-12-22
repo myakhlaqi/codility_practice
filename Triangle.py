@@ -1,8 +1,5 @@
 # Determine whether a triangle can be built from a given set of edges.
 
-# you can write to stdout for debugging purposes, e.g.
-# print("this is a debug message")
-
 def solution(A):
     n=len(A)
     for i in range(n-2):
@@ -11,9 +8,6 @@ def solution(A):
                 P,Q,R=A[i],A[j],A[k]
                 if(P+Q>R and P+R>Q and Q+R>P):
                     return 1
-    
-                
-    
     return 0
 
 def solution2(A):
@@ -23,8 +17,6 @@ def solution2(A):
         P,Q,R=A[i],A[i+1],A[i+2]
         if(P+Q>R and P+R>Q and Q+R>P):
             return 1
-        
-    
     return 0
 
 

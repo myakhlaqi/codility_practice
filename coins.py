@@ -4,8 +4,8 @@
 # that are multiples of i. That is, person i flips coins i, 2 · i, 3 · i, . . . until no more appropriate
 # coins remain. The goal is to count the number of coins showing tails. In the above example,
 # the final configuration is
-import math
 
+import math
 
 def coins(n):
     """ O(N*log(N))"""
@@ -29,7 +29,6 @@ def coins2(n):
     for i in range(1, n+1):
         if(int(math.sqrt(i))*int(math.sqrt(i)) == i):
             result += 1
-
     return result
 
 

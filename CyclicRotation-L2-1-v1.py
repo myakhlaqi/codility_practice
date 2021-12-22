@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 def solution(a, k):
     n=len(a)
     if(n>0):
@@ -10,4 +9,4 @@ def solution(a, k):
             a[0]=temp
     return a
     
-#print(solution([],8))
+#print(solution([1,2,3,0,5],8))

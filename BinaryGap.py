@@ -25,10 +25,8 @@ def to_binary(n):
 
 def solution(N):
     """This function get and integer number as input and count the max length of consequence number of zeros
-
     Args:
         N (Integer): input number
-
     Returns:
         [integer]: maxmal number of consequence zeros
     """

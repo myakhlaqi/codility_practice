@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 
-# you can write to stdout for debugging purposes, e.g.
-# print("this is a debug message")
-
-
 def solution(S, P, Q):
+    """O(N^2) time complexity
+    """
     dic_if={'A':1,'C':2,'G':3,'T':4}
     result=[]
     for i in range(len(Q)):
@@ -20,6 +18,8 @@ def solution(S, P, Q):
 
 
 def solution1(S, P, Q):
+    """O(N) time complexity
+    """
     n=len(S)
     m=len(P)
     dna_matrix=[[0 for col in range(n+1)] for row in range(3)]

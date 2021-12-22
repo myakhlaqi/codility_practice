@@ -1,6 +1,4 @@
 # Determine whether a given string of parentheses (multiple types) is properly nested.
-# you can write to stdout for debugging purposes, e.g.
-# print("this is a debug message")
 from collections import deque
 def get_open(ch):
     if(ch=="}"):

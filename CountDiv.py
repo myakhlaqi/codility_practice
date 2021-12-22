@@ -1,5 +1,4 @@
-# you can write to stdout for debugging purposes, e.g.
-# print("this is a debug message")
+
 
 def solution(A, B, K):
     b = (B//K) + 1  
@@ -8,7 +7,6 @@ def solution(A, B, K):
         a-=1        #//   remove 1 from "a"
         
     return b-a     #// return integers in rang
-
 
 
 print(solution(6,12,2))

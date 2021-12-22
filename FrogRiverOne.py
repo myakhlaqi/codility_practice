@@ -1,6 +1,4 @@
-# you can write to stdout for debugging purposes, e.g.
-# print("this is a debug message")
-
+#!/usr/bin/env python3
 def solution(X, A):
     path={}
     print("path", path)
