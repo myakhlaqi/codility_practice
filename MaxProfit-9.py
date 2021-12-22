@@ -36,4 +36,4 @@ A[2] = 21123
 A[3] = 21366
 A[4] = 21013
 A[5] = 21367
-print(solution1(A))
+print(solution(A))
