@@ -95,20 +95,24 @@ def solution2(S):
                 swap_count += 1
             elif(B[current][1] == 2):
                 # B[current][1]+=1
-                if(pre is None and next is None):
-                    return -1
+                if(pre is not None and next is not None):
+                    if(B[current-1][1]<B[current+1][1]):
+                        B[current][1]+=1
+                        B[pre][1]-=1
+                        swap_count+=B[current-1][1]
+                    else:
+                        B[current][1]+=1
+                        B[next][1]-=1
+                        swap_count+=B[current+1][1]
                 elif(pre is None):
-                    B[next][1] -= 1
-                    B[current+1][1] -= 1
-                    B = B[:current+2]+[[current_char, 1],
-                                       [B[current+1][0], 1]]+B[next:]
-                    swap_count += 1
+                    B[current][1]+=1
+                    B[next][1]-=1
+                    swap_count+=B[current+1][1]
+                    pass
                 elif(next is None):
-                    B[pre][1] -= 1
-                    B[current-1][1] -= 1
-                    B = B[:pre+1]+[[B[current-1][0], 1],
-                                   [current_char, 1]]+B[current-1:]
-                    swap_count += 1
+                    B[current][1]+=1
+                    B[pre][1]-=1
+                    swap_count+=B[current-1][1]
 
             B = [x for x in B if x[1] > 0]
             B_stack = []
@@ -137,8 +141,10 @@ def getGap(chr, B):
     return sum([x[1] for x in B[start:end] if x[0] != chr])
 
 
-# print(getGap("b",count_letters("bbab")))
-print(solution2("aabbbbababa"))
+#print(getGap("b",count_letters("bbab")))
+#print(solution2("aabbbbababa"))
 # print(solution2("abbbbaa"))
 #print(solution2("baabaab"))
 #print(solution2("ababab"))
+#print(solution2("abaabaaba"))
+print(solution2("abaabaaba"))#4
