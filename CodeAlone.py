@@ -95,15 +95,18 @@ def solution(S):
                         # if(B[i][1]==1 and current_neighbor_ix>0 and current_neighbor_ix<len(B)-1 ):
                         #     candidate_ix = i
                         #     neighbor_ix=current_neighbor_ix
-                        pre_gap=getGap(current_char,B,candidate_ix,neighbor_ix)
-                        cur_gap=getGap(current_char,B,i,current_neighbor_ix)
-                        if(cur_gap<pre_gap and B[candidate_ix][1]==B[i][1]):
+                        if(B[neighbor_ix][1]>B[current_neighbor_ix][1]):
                             candidate_ix = i
                             neighbor_ix=current_neighbor_ix
-  
+                        else:
+                            pre_gap=getGap(current_char,B,candidate_ix,neighbor_ix)
+                            cur_gap=getGap(current_char,B,i,current_neighbor_ix)
+                            if(cur_gap<pre_gap):
+                                candidate_ix = i
+                                neighbor_ix=current_neighbor_ix
                     min_total_swap = min(min_swap_sofar, min_total_swap)
             
-            print("{} {} {}".format(candidate_ix,"<==" if candidate_ix<neighbor_ix else "= or ==>" ,neighbor_ix))
+            #print("{} {} {}".format(candidate_ix,"<==" if candidate_ix<neighbor_ix else "= or ==>" ,neighbor_ix))
                                 
             if(B[candidate_ix][1]==2):#if two a : aa
                 B[candidate_ix][1]+=1
@@ -143,7 +146,7 @@ def solution(S):
             a_max_length = max([x[1] for x in B if x[0] == "a"])
             b_max_length = max([x[1] for x in B if x[0] == "b"])
 
-            print("B", B)
+            #print("B", B)
 
     return swap_count
 
@@ -174,17 +177,17 @@ def getGap(current_char, D,candidate_ix,neighbor_ix):
                 B[candidate_ix-1][1]-=1
                 B.insert(neighbor_ix+1,[reversChar(current_char),1])
                 B.insert(neighbor_ix+2,[current_char,1])
-    B = [x for x in B if x[1] > 0]
-    B_stack = []
-    for i in B:
-        if(len(B_stack) == 0):
-            B_stack.append(i)
-        else:
-            if(B_stack[-1][0] == i[0]):
-                B_stack[-1][1] += i[1]
-            else:
-                B_stack.append(i)
-    B = B_stack
+    # B = [x for x in B if x[1] > 0]
+    # B_stack = []
+    # for i in B:
+    #     if(len(B_stack) == 0):
+    #         B_stack.append(i)
+    #     else:
+    #         if(B_stack[-1][0] == i[0]):
+    #             B_stack[-1][1] += i[1]
+    #         else:
+    #             B_stack.append(i)
+    # B = B_stack
     C = [x[0] for x in B]
     start = C.index(reversChar(current_char))
     end = len(C)-1-C[::-1].index(reversChar(current_char))
@@ -203,7 +206,8 @@ def getGap(current_char, D,candidate_ix,neighbor_ix):
 #print(solution("aabaababbbbbabaa"))#1
 #print(solution("abbaabba"))#
 #print(solution("ababbababb"))#3
-print(solution("bbabbababb"))#3
+#print(solution("bbabbababb"))#3
+print(solution("bbabbaababaababb"))#1
 
 # print(getGap("b",count_letters("bbabbababb"),2,4))
 # print(getGap("b",count_letters("bbabbababb"),6,4))
