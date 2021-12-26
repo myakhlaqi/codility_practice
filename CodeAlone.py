@@ -15,9 +15,9 @@ def count_letters(S):
     return B
 
 
-def solution2(S):
+def solution(S):
     B = count_letters(S)
-    print("B", B)
+    #print("B", B)
     S_counter = dict(Counter(S))
     a_count = S_counter["a"] if "a" in S_counter else 0
     b_count = S_counter["b"] if "b" in S_counter else 0
@@ -34,109 +34,100 @@ def solution2(S):
         current_char = "a" if a_max_length>b_max_length else "b"
         while(a_max_length < 3 or b_max_length < 3):
             if(a_max_length < 3 and b_max_length < 3):
-                if(getGap("a", B) > getGap("b", B)):
+                if(getGap1("a", B) > getGap1("b", B)):
                     current_char="a"
-                elif(getGap("a", B) < getGap("b", B)):
+                elif(getGap1("a", B) < getGap1("b", B)):
                     current_char="b"
             elif(a_max_length < 3):
                 current_char = "a"
             else:
                 current_char = "b"
-            #sum = 0
             candidate_ix = -1
-            next = -1
-            pre = -1
             neighbor_ix=-1
+            min_swap_sofar = 0
             min_total_swap = sys.maxsize
-            #total_sum = a_count if current_char == "a" else b_count
             for i in range(len(B)):
+                current_neighbor_ix=-1
                 if(B[i][0] == current_char):
-                    left_gap = sys.maxsize if i==0 else B[i-1][1]
-                    #sum += B[i][1]
-                    right_gap = sys.maxsize if i==(len(B)-1) else B[i+1][1]
-                    min_swap_sofar = 0
-                    if(B[i][1] == 2):  # if aa
-                        min_swap_sofar = min(left_gap, right_gap)
-                    else:  # if just one a
-                        min_swap_sofar = (left_gap+right_gap)
+                    if(i<=1):
+                        if(B[i][1]==2):
+                            min_swap_sofar=B[i+1][1]
+                            current_neighbor_ix=i+2
+                        else:
+                            min_swap_sofar=sys.maxsize
+                    elif(i>=len(B)-2):
+                        if  B[i][1]==2:
+                            min_swap_sofar=B[i-1][1]
+                            current_neighbor_ix=i-2
+                        else:
+                            min_swap_sofar=sys.maxsize
+                    else:# if in the middle not at first and end
+                        min_swap_sofar = min(B[i-1][1],B[i+1][1]) if B[i][1]==2 else (B[i-1][1]+B[i+1][1])
+                        if B[i+1][1]<B[i-1][1]:
+                            current_neighbor_ix=i+2
+                        elif(B[i+1][1]>B[i-1][1]):
+                            current_neighbor_ix=i-2
+                        else:
+                            if(B[i-2][1]<B[i+2][1]):# select the based on the size
+                                current_neighbor_ix=i-2
+                            elif B[i-2][1]>B[i+2][1]:
+                                current_neighbor_ix=i+2
+                            else: # if they are equal in size 
+                                if(B[i][1]==2): # if two aa or bb
+                                    if(i+2<len(B)-1):
+                                        current_neighbor_ix=i+2
+                                    else:
+                                        current_neighbor_ix=i-2
+                                else: # if just one a or b
+                                    if(i+2<len(B)-1):
+                                        current_neighbor_ix=i+2
+                                    elif(i-2>0):
+                                        current_neighbor_ix=i-2
+                                    else:# if both are move candidate to one side
+                                        current_neighbor_ix=i
                     if(min_swap_sofar < min_total_swap):
                         candidate_ix = i
-                        pre = None if left_gap == sys.maxsize else i-2
-                        next = None if right_gap == sys.maxsize else i+2
-                    elif(min_swap_sofar == min_total_swap):
-                        if(B[candidate_ix][1]==2 and B[i][1]==2):
-                            pre_min_size=min(B[candidate_ix-2][1] if pre is not None else sys.maxsize,B[candidate_ix+2][1] if next is not None else sys.maxsize)
-                            current_min_size=min(B[i-2][1] if i-2>=0 else sys.maxsize,B[i+2][1] if i+2<len(B) else sys.maxsize)
-                            if(current_min_size<pre_min_size):
-                                candidate_ix = i
-                                pre = None if left_gap == sys.maxsize else i-2
-                                next = None if right_gap == sys.maxsize else i+2
-                        if(B[candidate_ix][1]==1 and B[i][1]==2):
-                                candidate_ix = i
-                                pre = None if left_gap == sys.maxsize else i-2
-                                next = None if right_gap == sys.maxsize else i+2                            
+                        neighbor_ix=current_neighbor_ix
+                    elif min_swap_sofar == min_total_swap:
+                        # if (B[current_neighbor_ix][1]<B[neighbor_ix][1] and B[i][1]==2):
+                        #     candidate_ix = i
+                        #     neighbor_ix=current_neighbor_ix
+                        # if(B[i][1]==1 and current_neighbor_ix>0 and current_neighbor_ix<len(B)-1 ):
+                        #     candidate_ix = i
+                        #     neighbor_ix=current_neighbor_ix
+                        pre_gap=getGap(current_char,B,candidate_ix,neighbor_ix)
+                        cur_gap=getGap(current_char,B,i,current_neighbor_ix)
+                        if(cur_gap<pre_gap and B[candidate_ix][1]==B[i][1]):
+                            candidate_ix = i
+                            neighbor_ix=current_neighbor_ix
+  
                     min_total_swap = min(min_swap_sofar, min_total_swap)
-            if(B[candidate_ix][1] == 1):
-                B_right = copy.deepcopy(B)
-                B_right[next][1] -= 1
-                B_right[candidate_ix+1][1]-=1
-                B_right.insert(candidate_ix+2,[current_char,1])
-                B_right.insert(candidate_ix+3,[reversChar(current_char),1])
-
-                B_left = copy.deepcopy(B)
-                B_left[pre][1] -= 1
-                B_left[candidate_ix-1][1]-=1
-                B_left.insert(pre,[reversChar(current_char),1])
-                B_left.insert(pre+1,[current_char,1])
-                current_gap=getGap(reversChar(current_char),B)
-                if(a_max_length<3 and b_max_length<3):
-                    if(getGap(reversChar(current_char), B_right) <= current_gap ):
-                        B = B_right
-                    elif(getGap(reversChar(current_char), B_left) <= current_gap):
-                        B = B_left
-                    else:
-                        if(B[candidate_ix+1][1]<=B[candidate_ix-1][1]):
-                            B[candidate_ix-1][1]+=1
-                            B[candidate_ix+1][1]-=1
-                        else:
-                            B[candidate_ix+1][1]+=1
-                            B[candidate_ix-1][1]-=1
+            
+            print("{} {} {}".format(candidate_ix,"<==" if candidate_ix<neighbor_ix else "= or ==>" ,neighbor_ix))
+                                
+            if(B[candidate_ix][1]==2):#if two a : aa
+                B[candidate_ix][1]+=1
+                B[neighbor_ix][1]-=1
+                swap_count+=B[candidate_ix+1][1] if (candidate_ix<neighbor_ix) else B[candidate_ix-1][1]
+            else:# if jus one a
+                # if(a_max_length < 3 and b_max_length < 3):
+                if(candidate_ix==neighbor_ix):
+                        B[candidate_ix-1][1]-=1
+                        B[candidate_ix+1][1]+=1
                 else:
-                    if(B[candidate_ix+1][1]<=B[candidate_ix-1][1]):
-                        B=B_right
-                    else:
-                        B=B_left
-                swap_count += 1
-            elif(B[candidate_ix][1] == 2):
-                # B[current][1]+=1
-                if(pre is not None and next is not None):
-                    if(B[candidate_ix-1][1]<B[candidate_ix+1][1]):
-                        B[candidate_ix][1]+=1
-                        B[pre][1]-=1
-                        swap_count+=B[candidate_ix-1][1]
-                    elif(B[candidate_ix-1][1]>B[candidate_ix+1][1]):
-                        B[candidate_ix][1]+=1
-                        B[next][1]-=1
-                        swap_count+=B[candidate_ix+1][1]
-                    else:
-                        if(pre>0):
-                            B[candidate_ix][1]+=1
-                            B[pre][1]-=1
-                            swap_count+=B[candidate_ix-1][1]
-                        elif(next<len(B)-1):
-                            B[candidate_ix][1]+=1
-                            B[next][1]-=1
-                            swap_count+=B[candidate_ix+1][1]
-                elif(pre is None):
-                    B[candidate_ix][1]+=1
-                    B[next][1]-=1
-                    swap_count+=B[candidate_ix+1][1]
-                    pass
-                elif(next is None):
-                    B[candidate_ix][1]+=1
-                    B[pre][1]-=1
-                    swap_count+=B[candidate_ix-1][1]
-
+                #     if(candidate_ix==neighbor_ix):
+                #         neighbor_ix=candidate_ix+2
+                #B[candidate_ix][1]+=1
+                    B[neighbor_ix][1]-=1
+                    if(candidate_ix<neighbor_ix):#change the right side
+                        B[candidate_ix+1][1]-=1
+                        B.insert(candidate_ix+2,[current_char,1])
+                        B.insert(candidate_ix+3,[reversChar(current_char),1])
+                    else:# change the left side
+                        B[candidate_ix-1][1]-=1
+                        B.insert(neighbor_ix+1,[reversChar(current_char),1])
+                        B.insert(neighbor_ix+2,[current_char,1])
+                swap_count+=1
             B = [x for x in B if x[1] > 0]
             B_stack = []
             for i in B:
@@ -158,19 +149,61 @@ def solution2(S):
 
 
 
-def getGap(chr, B):
+def getGap1(chr, B):
     C = [x[0] for x in B]
     start = C.index(chr)
     end = len(C)-1-C[::-1].index(chr)
     return sum([x[1] for x in B[start:end] if x[0] != chr])
 
+def getGap(current_char, D,candidate_ix,neighbor_ix):
+    B=copy.deepcopy(D)
+    if(B[candidate_ix][1]==2):#if two a : aa
+        B[candidate_ix][1]+=1
+        B[neighbor_ix][1]-=1
+    else:# if jus one a
+        if(candidate_ix==neighbor_ix):
+                B[candidate_ix-1][1]-=1
+                B[candidate_ix+1][1]+=1
+        else:
+            B[neighbor_ix][1]-=1
+            if(candidate_ix<neighbor_ix):#change the right side
+                B[candidate_ix+1][1]-=1
+                B.insert(candidate_ix+2,[current_char,1])
+                B.insert(candidate_ix+3,[reversChar(current_char),1])
+            else:# change the left side
+                B[candidate_ix-1][1]-=1
+                B.insert(neighbor_ix+1,[reversChar(current_char),1])
+                B.insert(neighbor_ix+2,[current_char,1])
+    B = [x for x in B if x[1] > 0]
+    B_stack = []
+    for i in B:
+        if(len(B_stack) == 0):
+            B_stack.append(i)
+        else:
+            if(B_stack[-1][0] == i[0]):
+                B_stack[-1][1] += i[1]
+            else:
+                B_stack.append(i)
+    B = B_stack
+    C = [x[0] for x in B]
+    start = C.index(reversChar(current_char))
+    end = len(C)-1-C[::-1].index(reversChar(current_char))
+    return sum([x[1] for x in B[start:end] if x[0] == current_char])
+    
 
-#print(getGap("b",count_letters("bbab")))
-#print(solution2("aabbbbababa"))
-# print(solution2("abbbbaa"))
-#print(solution2("baabaab"))
-#print(solution2("ababab"))
+#print(getGap("b",count_letters("bbab")))#-1
+#print(solution("aabbbbababa"))#2
+#print(solution("abbbbaa"))#4
+#print(solution("baabaab"))#5
+#print(solution("ababab"))#3
 #print(solution2("abaabaaba"))
 #print(solution2("abaabaaba"))#4
 #print(solution2("ababbaabba"))#2
-print(solution2("bbabbaababaababb"))#1
+#print(solution2("bbabbaababaababb"))#1
+#print(solution("aabaababbbbbabaa"))#1
+#print(solution("abbaabba"))#
+#print(solution("ababbababb"))#3
+print(solution("bbabbababb"))#3
+
+# print(getGap("b",count_letters("bbabbababb"),2,4))
+# print(getGap("b",count_letters("bbabbababb"),6,4))
