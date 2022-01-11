@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+
 def solution(A):
     n=-1
     if len(A)==0:
