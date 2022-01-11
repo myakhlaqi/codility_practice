@@ -18,7 +18,6 @@ def solution(A):
                 n=A[0]
                 A.pop(0)
                 break
-
     return n
 
 print("final result:",solution([9,3,9,3,9,7,9]))
