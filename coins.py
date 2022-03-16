@@ -30,6 +30,5 @@ def coins2(n):
         if(int(math.sqrt(i))*int(math.sqrt(i)) == i):
             result += 1
     return result
-
 print(coins(100))
 print(coins2(100))
