@@ -6,3 +6,4 @@ def solution(A):
     dic_a=dict(Counter(A))
     return len(dic_a)
  
+ 
