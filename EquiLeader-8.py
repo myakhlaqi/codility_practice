@@ -109,7 +109,6 @@ def solution1(A):
             counter+=1
     return counter
 #A=[0]*10
-
 #A=[-1, 4, -1, 3, -1]
 
 #A=random.sample(range(-10000000000,1000000000),300)
