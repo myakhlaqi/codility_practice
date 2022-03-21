@@ -45,7 +45,6 @@ def leader_all(A):
         if(len(stack)==0):
             stack.append(value)
             counter+=1
-            
         else:
             if(value!=stack[-1]):
                 stack.pop()
