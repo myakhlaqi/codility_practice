@@ -13,7 +13,7 @@ def solution(A, B):
                 if q[-1][0]<A[i]:
                     q.pop()
                     #q.append((A[i],B[i]))
-                    continue
+                    continue 
             else:
                 q.append((A[i],B[i]))
         print("q", q)
