@@ -1,6 +1,7 @@
 #N voracious fish are moving along a river. Calculate how many fish are alive.
 
 from collections import deque
+
 def solution(A, B):
     q=deque()
     i=0
