@@ -1,4 +1,4 @@
-#N voracious fish are moving along a river. Calculate how many fish are alive.
+#N voracious fish are moving along a river. Calculate how many fish are alive. 
 
 from collections import deque
 
