@@ -1,6 +1,6 @@
 #!/usr/bin/env python3 
 
-def solution(X, A):
+def solution(X, A): 
     path={}
     print("path", path)
     counter=0
