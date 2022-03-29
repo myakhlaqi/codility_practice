@@ -1,4 +1,5 @@
 #!/usr/bin/env python3 
+
 def solution(X, A):
     path={}
     print("path", path)
