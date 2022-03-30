@@ -1,4 +1,5 @@
 from collections import deque
+
 def get_open(ch):
     if(ch=="}"):
         return "{"
