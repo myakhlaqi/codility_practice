@@ -8,7 +8,7 @@ def get_open(ch):
     elif(ch=="]"):
         return "["
     
-def solution(S):
+def solution(S): 
     q=deque()
     for i in S:
         if i in "{[(":
