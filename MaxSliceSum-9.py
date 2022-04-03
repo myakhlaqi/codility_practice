@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3 
 
 #Find a maximum sum of a compact subsequence of array elements.
 
