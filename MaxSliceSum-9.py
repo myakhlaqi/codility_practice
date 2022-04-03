@@ -12,7 +12,7 @@ def solution(A):
     else:
         for a in A:
             max_ending =max(a,max_ending + a)
-            max_slice = max(max_slice, max_ending)
+            max_slice = max(max_slice, max_ending) 
         return max_slice
 
 print(solution([5,-7,3,5,-2,4,-1]))
