@@ -1,6 +1,6 @@
 #!/usr/bin/env python3 
 
-#Find a maximum sum of a compact subsequence of array elements.
+#Find a maximum sum of a compact subsequence of array elements. 
 
 import sys
 def solution(A):
