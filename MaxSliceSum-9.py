@@ -8,7 +8,7 @@ def solution(A):
     """
     max_ending = max_slice = -sys.maxsize
     if(len(A)==1):
-        return A[0]
+        return A[0] 
     else:
         for a in A:
             max_ending =max(a,max_ending + a)
