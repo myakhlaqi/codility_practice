@@ -1,6 +1,6 @@
 import random
 
-def solution1(A):
+def solution1(A): 
     dif_list=[]
     for part in range(1,len(A)):
         p1=A[:part]
