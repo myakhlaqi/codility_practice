@@ -1,4 +1,5 @@
 #Find the smallest positive integer that does not occur in a given sequence
+
 from collections import Counter
 def solution(A):
     dic_a=dict(Counter(A))
