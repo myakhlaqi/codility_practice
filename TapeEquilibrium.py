@@ -1,4 +1,5 @@
 import random
+
 def solution1(A):
     dif_list=[]
     for part in range(1,len(A)):
