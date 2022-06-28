@@ -61,5 +61,5 @@ def solution1(H):
             i+=1
     return counter
 
-H=[8,8,5,7,9,8,7,4,8]
+H=[8,8,5,7,9,8,7,4, 8]
 print(solution(H))
