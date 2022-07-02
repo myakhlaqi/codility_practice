@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env Python3
 
 def solution(S, P, Q):
     """O(N^2) time complexity
