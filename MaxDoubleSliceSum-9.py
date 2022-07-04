@@ -14,7 +14,7 @@ def solution(A):
     else:
 
         for i in range(1,n-1):
-            max_sum_endingat[i] =max(0,max_sum_endingat[i-1] + A[i])
+            max_sum_endingat[i] =max(0,max_sum_endingat[i-1] + A[i]) 
         max_ending = max_slice = -sys.maxsize
         for i in range(n-2,0,-1):
             max_sum_startat[i] =max(0,max_sum_startat[i+1] + A[i])
