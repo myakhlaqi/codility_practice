@@ -1,7 +1,7 @@
 #Find the maximal sum of any double slices.
 #https://app.codility.com/programmers/lessons/9-maximum_slice_problem/max_double_slice_sum/ 
 
-import sys
+import sys 
 
 def solution(A):
     
