@@ -1,4 +1,3 @@
-
 def solution(A):
     set_a=set(A)
     set_b={*range(1,len(A)+2)}
