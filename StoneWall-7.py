@@ -42,7 +42,7 @@ def solution1(H):
         [type]: [description]
     """
     q=deque([0])
-    print("q", q)
+    print("q:", q)
     counter=0
     i=0
     while(i<len(H)):
