@@ -6,7 +6,7 @@ def solution(H):
     """O(N)
 
     Args:
-        H ([type]): [description]
+        H ([type]):  [description]
 
     Returns:
         [type]: [description]
