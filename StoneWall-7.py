@@ -1,4 +1,4 @@
-#Cover "Manhattan skyline" using the minimum number of rectangles. 
+#Cover "Manhattan skyline" using the minimum number of rectangles.  
 from collections import deque
 from operator import add
 from functools import reduce
