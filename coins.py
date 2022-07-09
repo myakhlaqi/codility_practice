@@ -31,5 +31,5 @@ def coins2(n):
             result += 1
     return result
 
-print(coins(100))
+print(coins( 100))
 print(coins2(100))
