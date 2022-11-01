@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 def solution(A):
     n=-1
     if len(A)==0:
@@ -17,7 +18,6 @@ def solution(A):
                 n=A[0]
                 A.pop(0)
                 break
-
     return n
 
 print("final result:",solution([9,3,9,3,9,7,9]))

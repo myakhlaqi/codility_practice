@@ -1,6 +1,6 @@
 # Determine whether a triangle can be built from a given set of edges.
 
-def solution(A):
+def solution(A): 
     n=len(A)
     for i in range(n-2):
         for j in range(i+1,n-1):
@@ -20,6 +20,6 @@ def solution2(A):
     return 0
 
 
-A=[10,2,5,1,8,20]
+A=[10 ,2 , 5, 1,8,20]
 #A=[10,50,5,1]
 print(solution2(A))

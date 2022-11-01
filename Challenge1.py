@@ -1,6 +1,6 @@
-from collections import Counter
 import re
 import copy
+from collections import Counter
 
 def opposite(ch):
     if(ch == "a"):

@@ -1,5 +1,6 @@
-from collections import deque
-def get_open(ch):
+from collections import deque 
+
+def get_open(ch): 
     if(ch=="}"):
         return "{"
     elif(ch==")"):
@@ -7,7 +8,7 @@ def get_open(ch):
     elif(ch=="]"):
         return "["
     
-def solution(S):
+def solution(S): 
     q=deque()
     for i in S:
         if i in "{[(":
@@ -24,5 +25,6 @@ def solution(S):
         return 0
     return 1
 
-print(solution("(()(())())"))
+#print(solution("(()(())())"))
+#print(solution("(({}())())"))
 print(solution("())"))

@@ -1,5 +1,6 @@
-#!/usr/bin/env python3
-def solution(X, A):
+#!/usr/bin/env python3 
+
+def solution(X, A): 
     path={}
     print("path", path)
     counter=0
@@ -16,6 +17,6 @@ def solution(X, A):
         result=max(path,key=path.get)
         return path[result]
     else:
-        return -1
+        return -1 
     
 print(solution(5,[1,1,1,4,2,1,5,3,4]))

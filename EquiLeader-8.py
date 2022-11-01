@@ -1,4 +1,5 @@
 #Find the index S such that the leaders of the sequences A[0], A[1], ..., A[S] and A[S + 1], A[S + 2], ..., A[N - 1] are the same.
+
 from collections import deque
 
 def solution3(A):
@@ -44,7 +45,6 @@ def leader_all(A):
         if(len(stack)==0):
             stack.append(value)
             counter+=1
-            
         else:
             if(value!=stack[-1]):
                 stack.pop()
@@ -109,9 +109,7 @@ def solution1(A):
             counter+=1
     return counter
 #A=[0]*10
-
 #A=[-1, 4, -1, 3, -1]
-
 #A=random.sample(range(-10000000000,1000000000),300)
 #A=[-999999999]*300
 #A=[4,1,2,3,4,4,4]

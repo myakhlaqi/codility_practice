@@ -1,4 +1,4 @@
-#Cover "Manhattan skyline" using the minimum number of rectangles.
+#Cover "Manhattan skyline" using the minimum number of rectangles.  
 from collections import deque
 from operator import add
 from functools import reduce
@@ -6,13 +6,13 @@ def solution(H):
     """O(N)
 
     Args:
-        H ([type]): [description]
+        H ([type]):  [description]
 
     Returns:
         [type]: [description]
     """
     q=deque([0])
-    print("q", q)
+    print("q:", q)
     counter=0
     i=0
     sum=0
@@ -42,7 +42,7 @@ def solution1(H):
         [type]: [description]
     """
     q=deque([0])
-    print("q", q)
+    print("q:", q)
     counter=0
     i=0
     while(i<len(H)):
@@ -61,5 +61,5 @@ def solution1(H):
             i+=1
     return counter
 
-H=[8,8,5,7,9,8,7,4,8]
+H=[ 8,8,5,7,9,8,7,4, 8]
 print(solution(H))
