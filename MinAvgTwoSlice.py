@@ -21,7 +21,7 @@ def solution(A):
     return min_index
 
 def solution2(A):
-    # write your code
+
     n=len(A)
     P=prefix_sums(A)
     min=max(A)
