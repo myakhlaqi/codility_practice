@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 #Find the minimal average of any slice containing at least two elements.
+
 import random
 
 def solution(A):
