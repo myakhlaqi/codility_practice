@@ -20,7 +20,6 @@ def solution(A):
     
     return min_index
 
-
 def solution2(A):
     # write your code in Python 3.6
     n=len(A)
