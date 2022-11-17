@@ -20,7 +20,7 @@ def solution(A):
     return  min(dif_list,default=0)
         
 
-#print(solution(random.sample(range(-10000,10000),20)))
+#print(solution(random.sample(range(-10000,10000),1000)))
 print(solution([3,1,2,4,3]))
 # for i in range(1,5):
 #     print(dif([3,1,2,4,3],i))
