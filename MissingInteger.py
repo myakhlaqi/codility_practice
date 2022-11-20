@@ -6,7 +6,7 @@ def solution(A):
     dic_a=dict(Counter(A)) 
     if(len(A)==0):
         return 1
-    # print(, dic_a)
+    # print(dic_a)
     max_value=max(A)
     if(max_value<=0):
         return 1
