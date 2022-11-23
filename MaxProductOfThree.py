@@ -72,4 +72,4 @@ def solution3(A):
 A=[-1,-2,-3,9]
 print(solution(A))
 print(solution2(A))
-print(solution3(A))
+# print(solution3(A))
