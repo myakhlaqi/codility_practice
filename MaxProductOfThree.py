@@ -1,6 +1,6 @@
 #Maximize A[P] * A[Q] * A[R] for any triplet (P, Q, R).
 
-# you can write to stdout for debugging purposes, e.g.
+# you can write to stdout for debugging purposes
 # print("this is a debug message")
 
 import sys
